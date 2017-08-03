@@ -200,7 +200,6 @@ video{
     left: 35px;
     z-index: 5; 
     border-radius: 3px;
-    display: none;
     cursor: pointer;
 }
 .cloth_btn{

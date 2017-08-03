@@ -5,9 +5,11 @@ $(document).ready(function () {
         if (player.paused) {
             player.play();
             $(this).removeClass('icon-play').addClass('icon-pause');
+            $('#video_cloth').hide();
         } else {
             player.pause();
             $(this).removeClass('icon-pause').addClass('icon-play');
+            $('#video_cloth').show();
         }
     });
     $('#stop').on('click', function () {
@@ -103,8 +105,12 @@ $(document).ready(function () {
     });
     $('#player').on('click',function(){
         $('#video_cloth').show();
-    })
+        player.pause();
+        $('#play').removeClass('icon-pause').addClass('icon-play');
+    });
     $('#video_cloth').on('click',function(){
         $('#video_cloth').hide();
-    })
+        player.play();
+        $('#play').removeClass('icon-play').addClass('icon-pause');
+    });
 })
