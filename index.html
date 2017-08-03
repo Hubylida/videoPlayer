@@ -91,11 +91,12 @@
                     "https://dl101.yunpan.360.cn/intf.php?method=Download.downloadFile&qid=124088588&fname=%2Ffatea5.mp4&fhash=5f0e7a2c2458b29e237aad0abc27067fe2211e47&dt=101_101.0229300dc17500930f867f6102ca53f4&v=1.0.1&rtick=15017605666608&open_app_id=0&host=dl101.yunpan.360.cn&devtype=ecs_web&sign=c54d1924f09f1a8bf79c7084afca9180&token=1996801097.5.a0185953.124088588.14962115472113405.1501730595"];
         if(player.paused){
              $('#player').attr('src',srcList[i]);
+             $('#video_cloth').show();
         }else{
             $('#play').removeClass('icon-pause').addClass('icon-play');
             $('#player').attr('src',srcList[i]);
+            $('#video_cloth').show();
         }
     }
-    $('')
     </script>
 </html>
