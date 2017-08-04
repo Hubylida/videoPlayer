@@ -1,12 +1,12 @@
-;$(document).ready(function () {
+; $(document).ready(function () {
     var $player = $('#player');
     var player = $player[0];
-    function play(){
+    function play() {
         player.play();
         $('#play').removeClass('icon-play').addClass('icon-pause');
         $('#video_cloth').hide();
     }
-    function pause(){
+    function pause() {
         player.pause();
         $('#play').removeClass('icon-pause').addClass('icon-play');
         $('#video_cloth').show();
@@ -22,7 +22,7 @@
         player.currentTime = 0;
         $('#ctl_du_b').css('width', 0 + 'px');
         if (!player.paused) {
-           pause();
+            pause();
         }
     });
     $('.v_ctl_du').on('click', function (e) {
@@ -85,8 +85,8 @@
                 };
             } else {
                 alert("浏览器不支持您选择的文件格式");
-            } 
-        });        
+            }
+        });
     });
     $('#v_ctl_expand').on('click', function () {
         if (!document.webkitIsFullScreen) {
@@ -109,53 +109,51 @@
             $('#ctl_vol_b').css('width', (window.per * vw).toFixed(0) + 'px');
         }
     });
-    $('#player').on('click',function(){
+    $('#player').on('click', function () {
         pause();
     });
-    $('#video_cloth').on('click',function(){
-       play();
+    $('#video_cloth').on('click', function () {
+        play();
     });
     var judge = true;
-    $(document).on('keyup',function(e){
-        if(e.keyCode === 32){
-            if(judge){
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 32) {
+            if (judge) {
                 play();
                 judge = !judge;
-            }else{
+            } else {
                 pause();
                 judge = !judge;
-            }            
+            }
         }
-        if(e.keyCode === 37){
-                durationC(-10);
-            }else if(e.keyCode === 39){
-                durationC(10);
-            }
-            function durationC(x){
-                var duration = player.duration;
-                var wb = $('#ctl_du_b').width();
-                var timed = player.currentTime + x;
-                var dued = (timed / duration).toFixed(3);
-                player.currentTime = timed;
-                $('#ctl_du_b').css('width',(dued * wb).toFixed(0) + 'px');
-            }
+        if (e.keyCode === 37) {
+            durationC(-10);
+        } else if (e.keyCode === 39) {
+            durationC(10);
+        }
+        function durationC(x) {
+            var duration = player.duration;
+            var wb = $('#ctl_du_b').width();
+            var timed = player.currentTime + x;
+            var dued = (timed / duration).toFixed(3);
+            player.currentTime = timed;
+            $('#ctl_du_b').css('width', (dued * wb).toFixed(0) + 'px');
+        }
     });
- 
-   var direction='right';
-    (function(){
-        var css={
-            'top':'49%'
+
+    (function () {
+        var css = {
+            'top': '49%'
         };
-        if(direction==='right'){
-            direction='left';
-            css.top='51%';
-        }else{
-            direction='right';
+        $('.cloth_btn').animate(css, 400, rowBack);
+        function rowBack() {
+            if (css.top === "49%") {
+                css.top = "51%";
+            } else if (css.top === "51%") {
+                css.top = "49%";
+            }
+            $('.cloth_btn').animate(css, 400, rowBack);
         }
-        $('.cloth_btn').animate(css,arguments.callee);
     })();
-    
-        $(document).on('keyup',function(){            
-            
-        });
+
 })
