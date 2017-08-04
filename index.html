@@ -43,6 +43,7 @@
                     <video class="video" id="player" src="https://dl101.yunpan.360.cn/intf.php?method=Download.downloadFile&qid=124088588&fname=%2Ffatea1.mp4&fhash=0f37f69fbbf2d69fdeb32cf4e4f1a3aaae24a847&dt=101_101.96e393e78609e78ccb79274c85113af5&v=1.0.1&rtick=15017559441334&open_app_id=0&host=dl101.yunpan.360.cn&devtype=ecs_web&sign=594b778866042a7ffcd10dab47c0abe3&token=1996801097.5.a0185953.124088588.14962115472113405.1501730595"></video>
                     <div id="video_cloth">
                         <div class="icon icon-play cloth_btn"></div>
+                        <p>—— by Yuan</p>
                     </div>
                     <div class="v_ctl">
                         <span id="play" class="icon icon-play"></span>
@@ -82,7 +83,7 @@
     <!--contain-->
 </body>
  <script src="js/index.js"></script>
- <script>
+ <script>   
     function changePlay(i){       
         var srcList = ["https://dl101.yunpan.360.cn/intf.php?method=Download.downloadFile&qid=124088588&fname=%2Ffatea1.mp4&fhash=0f37f69fbbf2d69fdeb32cf4e4f1a3aaae24a847&dt=101_101.96e393e78609e78ccb79274c85113af5&v=1.0.1&rtick=15017559441334&open_app_id=0&host=dl101.yunpan.360.cn&devtype=ecs_web&sign=594b778866042a7ffcd10dab47c0abe3&token=1996801097.5.a0185953.124088588.14962115472113405.1501730595",
                     "https://dl103.yunpan.360.cn/intf.php?method=Download.downloadFile&qid=124088588&fname=%2Ffatea2.mp4&fhash=4d4087c9ae84a719def9ba5ecc07f0e0f13b2e28&dt=103_103.0b96d1779b65e427e34e16e2f2178691&v=1.0.1&rtick=15017582806395&open_app_id=0&host=dl103.yunpan.360.cn&devtype=ecs_web&sign=a8dbc2788a369fa3a82c17b9cedb9026&token=1996801097.5.a0185953.124088588.14962115472113405.1501730595",
@@ -98,5 +99,15 @@
             $('#video_cloth').show();
         }
     }
+      var css = {color: '#e33'};
+   $('.cloth_btn').animate(css,500,rowBack);
+   function rowBack(){
+       if(css.color === '#fff'){
+           css.color = '#e33';
+       }else if(css.color === '#e33'){
+           css.color = '#fff';
+           $('.cloth.btn').animate(css,500,rowBack);
+       }
+   }
     </script>
 </html>

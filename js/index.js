@@ -1,23 +1,28 @@
-$(document).ready(function () {
+;$(document).ready(function () {
     var $player = $('#player');
     var player = $player[0];
+    function play(){
+        player.play();
+        $('#play').removeClass('icon-play').addClass('icon-pause');
+        $('#video_cloth').hide();
+    }
+    function pause(){
+        player.pause();
+        $('#play').removeClass('icon-pause').addClass('icon-play');
+        $('#video_cloth').show();
+    }
     $('#play').on('click', function () {
         if (player.paused) {
-            player.play();
-            $(this).removeClass('icon-play').addClass('icon-pause');
-            $('#video_cloth').hide();
+            play();
         } else {
-            player.pause();
-            $(this).removeClass('icon-pause').addClass('icon-play');
-            $('#video_cloth').show();
+            pause();
         }
     });
     $('#stop').on('click', function () {
         player.currentTime = 0;
         $('#ctl_du_b').css('width', 0 + 'px');
         if (!player.paused) {
-            player.pause();
-            $('#play').removeClass('icon-pause').addClass('icon-play');
+           pause();
         }
     });
     $('.v_ctl_du').on('click', function (e) {
@@ -44,7 +49,7 @@ $(document).ready(function () {
         }
         $('#ctl_du_b').css('width', (window.per * w).toFixed(0) + 'px');
         if (player.ended) {
-            $('#play').removeClass('icon-pause').addClass('icon-play');
+            pause();
         }
     });
     $('#ctl_vol_b').css('width', 30 + 'px');
@@ -52,7 +57,7 @@ $(document).ready(function () {
         if (player.muted) {
             player.muted = false;
             $(this).removeClass('icon-volume-mute').addClass('icon-volume');
-            $('#ctl_vol_b').css('width', 50 + '%');
+            $('#ctl_vol_b').css('width', 30 + '%');
         } else {
             player.muted = true;
             $(this).removeClass('icon-volume').addClass('icon-volume-mute');
@@ -74,19 +79,20 @@ $(document).ready(function () {
             if (canPlayType === 'maybe' || canPlayType === 'probably') {
                 src = window.URL.createObjectURL(file);
                 player.src = src;
-                $play.removeClass('icon-pause').addClass('icon-play'); //新打开的视频处于paused状态
+                pause(); //新打开的视频处于paused状态
                 player.onload = function () {
                     window.URL.revokeObjectURL(src);
                 };
             } else {
                 alert("浏览器不支持您选择的文件格式");
-            }
-        });
+            } 
+        });        
     });
     $('#v_ctl_expand').on('click', function () {
         if (!document.webkitIsFullScreen) {
             player.webkitRequestFullScreen(); //全屏
             $(this).removeClass('icon-expand').addClass('icon-contract');
+            player.controls = false;
         } else {
             document.webkitCancelFullScreen();
             $(this).removeClass('icon-contract').addClass('icon-expand');
@@ -104,13 +110,52 @@ $(document).ready(function () {
         }
     });
     $('#player').on('click',function(){
-        $('#video_cloth').show();
-        player.pause();
-        $('#play').removeClass('icon-pause').addClass('icon-play');
+        pause();
     });
     $('#video_cloth').on('click',function(){
-        $('#video_cloth').hide();
-        player.play();
-        $('#play').removeClass('icon-play').addClass('icon-pause');
+       play();
     });
+    var judge = true;
+    $(document).on('keyup',function(e){
+        if(e.keyCode === 32){
+            if(judge){
+                play();
+                judge = !judge;
+            }else{
+                pause();
+                judge = !judge;
+            }            
+        }
+        if(e.keyCode === 37){
+                durationC(-10);
+            }else if(e.keyCode === 39){
+                durationC(10);
+            }
+            function durationC(x){
+                var duration = player.duration;
+                var wb = $('#ctl_du_b').width();
+                var timed = player.currentTime + x;
+                var dued = (timed / duration).toFixed(3);
+                player.currentTime = timed;
+                $('#ctl_du_b').css('width',(dued * wb).toFixed(0) + 'px');
+            }
+    });
+ 
+   var direction='right';
+    (function(){
+        var css={
+            'top':'49%'
+        };
+        if(direction==='right'){
+            direction='left';
+            css.top='51%';
+        }else{
+            direction='right';
+        }
+        $('.cloth_btn').animate(css,arguments.callee);
+    })();
+    
+        $(document).on('keyup',function(){            
+            
+        });
 })

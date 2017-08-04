@@ -106,21 +106,22 @@ body{
 }
 #v_title{
     text-align: center;
+    margin-top: 16px;
 }
 .v_contain{
     width: 100%;
     margin-top: 15px;
 }
 .v_box{
-    width: 916px;
-    height: 553px;
+    width: 1000px;
+    height: 580px;
     margin: 0 auto;
     text-align: center;
     border-radius: 15px;
     position: relative;
 }
 .chos_num{
-    width: 848px;
+    width: 956px;
     line-height: 24px;
     margin: 5px auto;
     color: #e38383;
@@ -129,7 +130,7 @@ body{
 }
 .v_intro{
     margin: 0px auto;
-    width: 848px;
+    width: 960px;
     height: 190px;
     border-top: 1px solid #ddd;
     padding: 10px;
@@ -184,20 +185,20 @@ body{
     background: rgba(255, 255, 255, 0.5);
 }
 video{
-    width: 846px;
-    height: 515px;
+    width: 962px;
+    height: 542px;
     background: #000;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     cursor: pointer;
 }
 #video_cloth{
-    width: 846px;
-    height: 515px;
-    background: rgba(255,255,255,0.1);
+    width: 962px;
+    height: 542px;
+    background: rgba(255,255,255,0.2);
     position: absolute;
     top: 0;
-    left: 35px;
+    left: 19px;
     z-index: 5; 
     border-radius: 3px;
     cursor: pointer;
@@ -216,13 +217,18 @@ video{
     padding-top: 15px;
     cursor: pointer;
 }
+#video_cloth p{
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 30px;
+    font-weight: 800;
+}
 .v_ctl{
-    width: 846px;
+    width: 962px;
     height: 38px;
-    background: rgba(255, 255, 255, 0.8);
+    background: #fff;
     position: absolute;
     bottom: 0;
-    left: 35px;
+    left: 19px;
     text-align: left;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
@@ -240,7 +246,7 @@ video{
     color: #e38383;
 }
 .v_ctl_du{
-    width: 550px;
+    width: 650px;
     height: 38px;
     display: inline-block;
     position: relative;
@@ -254,7 +260,7 @@ video{
     transform: translateY(-50%);
 }
 #ctl_du_a{
-    width: 550px;
+    width: 650px;
     background: #000;
 }
 #ctl_du_b{
@@ -278,7 +284,7 @@ video{
     cursor: pointer;
 }
 .v_ctl_vol{
-    width: 80px;
+    width: 90px;
     height: 38px;
     display: inline-block;
     position: relative;
@@ -292,7 +298,7 @@ video{
     border-radius: 4px;
 }
 #ctl_vol_a{
-    width: 80px;
+    width: 90px;
     background: #000;
 }
 #ctl_vol_b{
