@@ -11,6 +11,9 @@
         $('#play').removeClass('icon-pause').addClass('icon-play');
         $('#video_cloth').show();
     }
+    $('#player').on('loading',function(){
+      alert('loading...')
+    })
     $('#play').on('click', function () {
         if (player.paused) {
             play();
