@@ -94,8 +94,10 @@ body{
 }
 #gif{
     position: absolute;
-    right: 50px;
-    top: 0px;
+    top: 70px;
+    left: 0px;
+    width: 200px;
+    height: 150px;
 }
 .main{
     width: 1160px;
@@ -155,22 +157,49 @@ body{
 }
 .v_chos{
     display: inline-block;
-    width: 690px;
+    width: 683px;
     height: 100px;
     border-top: 1px solid #ddd;
     margin-left: 10px;
     padding-top: 10px;
 }
- .btn_chos{
+#v_chos_left,#v_chos_right{
     display: inline-block;
     line-height: 90px;
-    width: 19%; 
+    width: 30px;
+    background: rgba(255,255,255,0.2);
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    vertical-align: top;
+    user-select: none;
+}
+#v_chos_left:hover,#v_chos_right:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+#play_contain{
+    overflow: hidden;
+    display: inline-block;
+    width: 610px;
+    height:90px; 
+    position: relative;
+}
+#play_scroll{
+    position: absolute;
+    width: 847px;
+    height: 90px;
+}
+ .btn_chos{
+    float: left;
+    line-height: 90px;
+    width: 116px; 
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
-    margin-left: 3px;
+    margin-left: 5px;
     color: #000;
-     font-weight: 600; 
+    font-weight: 600; 
     font-size: 18px;
 } 
 
@@ -319,6 +348,10 @@ video{
     display: none;
 }
 @media screen and (max-width:1300px){
+    #gif{
+        width: 120px;
+        height: 90px;
+    }
     .main{
         width: 1000px;
     }

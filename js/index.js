@@ -144,6 +144,8 @@
         }
     });
 
+    
+
     (function () {
         var css = {
             'top': '49%'
@@ -158,5 +160,6 @@
             $('.cloth_btn').animate(css, 400, rowBack);
         }
     })();
+ 
 
 })
